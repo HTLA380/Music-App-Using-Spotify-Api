@@ -13,7 +13,7 @@ const Login = () => {
     })();
   }, []);
   return (
-    <div className='flex flex-col items-center justify-center w-full min-h-screen'>
+    <div className='flex flex-col items-center justify-center w-full min-h-screen bg-black'>
       <img className='w-48 mb-5' src='/assets/images/spotify.png' />
       {providers &&
         Object.values(providers).map((provider) => (
