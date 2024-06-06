@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import {
   HomeIcon,
@@ -6,12 +8,21 @@ import {
   PlusCircleIcon,
   HeartIcon,
   RssIcon,
+  WrenchIcon,
 } from '@heroicons/react/24/outline';
+import { signOut, useSession } from 'next-auth/react';
 
 const Sidebar = () => {
+  const { data: session, status } = useSession();
+
+  console.log(session);
+
   return (
-    <aside className='text-gray-500 p-5 text-sm border-r border-gray-900'>
+    <aside className='p-5 text-sm text-gray-500 border-r border-gray-900'>
       <div className='space-y-4'>
+        <button onClick={() => signOut()} className='flex items-center space-x-2 hover:text-white'>
+          <p>Log out</p>
+        </button>
         <button className='flex items-center space-x-2 hover:text-white'>
           <HomeIcon className='w-5 h-5' />
           <p>Home</p>
