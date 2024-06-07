@@ -1,7 +1,10 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
+import Image from 'next/image';
 import { getProviders, signIn } from 'next-auth/react';
+
+// ===============================================
 
 const Login = () => {
   const [providers, setProviders] = useState(null);
@@ -14,7 +17,15 @@ const Login = () => {
   }, []);
   return (
     <div className='flex flex-col items-center justify-center w-full min-h-screen bg-black'>
-      <img className='w-48 mb-5' src='/assets/images/spotify.png' />
+      <Image
+        draggable={false}
+        loading='lazy'
+        width={192}
+        height={180}
+        className='w-48 mb-5'
+        src='/assets/images/spotify.png'
+        alt='spotify'
+      />
       {providers &&
         Object.values(providers).map((provider) => (
           <div>

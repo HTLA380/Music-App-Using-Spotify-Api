@@ -1,4 +1,3 @@
-import useSpotify from '@/hooks/useSpotify';
 import { millisToMinutesAndSeconds } from '@/lib/time';
 import React from 'react';
 

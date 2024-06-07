@@ -1,11 +1,14 @@
 import { Inter } from 'next/font/google';
-import './globals.css';
+import { getServerSession } from 'next-auth';
+
 import SessionProvider from '@/components/providers/AuthSessionProvider';
 import RecoilContextProvider from '@/components/providers/recoilContextProvider';
-import { getServerSession } from 'next-auth';
 import { authOptions } from './api/auth/[...nextauth]/options';
+import './globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
+
+// ====================================================
 
 export const metadata = {
   title: 'Spotify Api | Music App',
