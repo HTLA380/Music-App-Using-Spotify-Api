@@ -2,6 +2,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import SessionProvider from '@/components/providers/AuthSessionProvider';
 import { getServerSession } from 'next-auth';
+import RecoilContextProvider from '@/components/providers/recoilContextProvider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -19,7 +20,9 @@ export default async function RootLayout({ children }) {
     <html lang='en'>
       <body className={inter.className}>
         <SessionProvider session={session}>
-          <div className='h-screen overflow-hidden bg-black'>{children}</div>
+          <RecoilContextProvider>
+            <div className='h-screen overflow-hidden bg-black'>{children}</div>
+          </RecoilContextProvider>
         </SessionProvider>
       </body>
     </html>
