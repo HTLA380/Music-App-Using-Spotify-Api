@@ -1,7 +1,7 @@
 'use client';
 
 import { ChevronDownIcon } from '@heroicons/react/24/outline';
-import { useSession } from 'next-auth/react';
+import { signOut, useSession } from 'next-auth/react';
 import React, { useEffect, useState } from 'react';
 import { shuffle } from 'lodash';
 import { playlistState, playlistIdState } from '@/atoms/playlistAtom';
@@ -41,9 +41,11 @@ const PageLayout = () => {
   }, [spotifyApi, playlistId]);
 
   return (
-    <div className='flex-grow text-white'>
+    <div className='flex-grow h-screen overflow-y-scroll text-white scrollbar-hide'>
       <header className='absolute top-5 right-8'>
-        <div className='flex items-center p-1 pr-2 space-x-3 bg-black rounded-full cursor-pointer opacity-90 hover:opacity-80'>
+        <div
+          onClick={signOut}
+          className='flex items-center p-1 pr-2 space-x-3 bg-black rounded-full cursor-pointer opacity-90 hover:opacity-80'>
           <img className='w-10 h-10 rounded-full' src={session?.user.image} alt='' />
           <h2>{session?.user.name}</h2>
           <ChevronDownIcon className='w-5 h-5' />

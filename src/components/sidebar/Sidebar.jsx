@@ -31,9 +31,6 @@ const Sidebar = () => {
   return (
     <aside className='h-screen hidden md:inline-flex p-5 sm:max-w-[12rem] lg:max-w-[15rem] overflow-y-scroll text-xs text-gray-500 border-r border-gray-900 lg:text-sm scrollbar-hide '>
       <div className='space-y-4'>
-        <button onClick={() => signOut()} className='flex items-center space-x-2 hover:text-white'>
-          <p>Log out</p>
-        </button>
         <button className='flex items-center space-x-2 hover:text-white'>
           <HomeIcon className='w-5 h-5' />
           <p>Home</p>
