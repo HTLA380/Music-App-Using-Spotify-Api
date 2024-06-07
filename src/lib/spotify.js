@@ -20,8 +20,8 @@ const params = {
   scope: scopes,
 };
 
-const queryParamString = new URLSearchParams(params).toString();
-const LOGIN_URL = `https://accounts.spotify.com/authorize?${queryParamString}`;
+const queryParamString = new URLSearchParams(params);
+const LOGIN_URL = `https://accounts.spotify.com/authorize?${queryParamString.toString()}`;
 
 const spotifyApi = new SpotifyWebApi({
   clientId: process.env.NEXT_PUBLIC_CLIENT_ID,

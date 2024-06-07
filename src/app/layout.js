@@ -1,6 +1,7 @@
 import { Inter } from 'next/font/google';
 import './globals.css';
-import AuthSessionProvider from '@/components/providers/AuthSessionProvider';
+import SessionProvider from '@/components/providers/AuthSessionProvider';
+import { getServerSession } from 'next-auth';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -9,13 +10,17 @@ export const metadata = {
   description: 'Music App integrating with Spotify Api',
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  const session = await getServerSession();
+
+  console.log(session);
+
   return (
     <html lang='en'>
       <body className={inter.className}>
-        <AuthSessionProvider>
+        <SessionProvider session={session}>
           <div className='h-screen overflow-hidden bg-black'>{children}</div>
-        </AuthSessionProvider>
+        </SessionProvider>
       </body>
     </html>
   );
