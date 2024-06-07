@@ -1,8 +1,9 @@
 import { Inter } from 'next/font/google';
 import './globals.css';
 import SessionProvider from '@/components/providers/AuthSessionProvider';
-import { getServerSession } from 'next-auth';
 import RecoilContextProvider from '@/components/providers/recoilContextProvider';
+import { getServerSession } from 'next-auth';
+import { authOptions } from './api/auth/[...nextauth]/options';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -12,7 +13,7 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }) {
-  const session = await getServerSession();
+  const session = await getServerSession(authOptions);
 
   console.log(session);
 
